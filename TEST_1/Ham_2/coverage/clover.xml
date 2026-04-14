@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1776080794195" clover="3.2.0">
+  <project timestamp="1776080794195" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="22" coveredconditionals="22" methods="12" coveredmethods="12" elements="56" coveredelements="56" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+    <file name="staff-handle-input-change.ts" path="E:\APP_KY2_NAM2\QLBH_TKHTTTQL\qlbh-system\TEST_1\Ham_2\staff-handle-input-change.ts">
+      <metrics statements="22" coveredstatements="22" conditionals="22" coveredconditionals="22" methods="12" coveredmethods="12"/>
+      <line num="41" count="10" type="stmt"/>
+      <line num="45" count="10" type="stmt"/>
+      <line num="47" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="49" count="2" type="stmt"/>
+      <line num="53" count="8" type="cond" truecount="4" falsecount="0"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="58" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="59" count="2" type="stmt"/>
+      <line num="63" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="64" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="65" count="1" type="stmt"/>
+      <line num="71" count="3" type="stmt"/>
+      <line num="72" count="3" type="stmt"/>
+      <line num="74" count="3" type="cond" truecount="4" falsecount="0"/>
+      <line num="75" count="1" type="stmt"/>
+      <line num="80" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="87" count="1" type="stmt"/>
+      <line num="95" count="1" type="stmt"/>
+      <line num="96" count="1" type="stmt"/>
+      <line num="103" count="10" type="stmt"/>
+    </file>
+  </project>
+</coverage>

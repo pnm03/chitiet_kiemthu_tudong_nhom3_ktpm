@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bao cao thuc thi Playwright - Bien tim kiem</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbe3ef;
+      --primary: #2563eb;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero {
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .meta {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .summary .item {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #f8fbff;
+    }
+
+    .summary .item strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      background: #eff6ff;
+    }
+
+    .button:hover {
+      filter: brightness(0.98);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+    }
+
+    .case-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .status {
+      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-weight: 700;
+    }
+
+    .artifact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+
+    .artifact-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .artifact-links a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Bao cao thuc thi Playwright</h1>
+      <p class="meta">
+        Chuc nang: Tim kiem san pham | Ky thuat: Kiem thu gia tri bien | Moi truong: https://qlkh-tkhttt.vercel.app | Cong cu: Playwright + Chromium
+      </p>
+
+      <div class="summary">
+        <div class="item">
+          <strong>7/7</strong>
+          <span>Ca kiem thu dat</span>
+        </div>
+        <div class="item">
+          <strong>7</strong>
+          <span>Minh chung anh</span>
+        </div>
+        <div class="item">
+          <strong>7</strong>
+          <span>Video thuc thi</span>
+        </div>
+        <div class="item">
+          <strong>7</strong>
+          <span>File trace</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="button" href="./playwright-report/index.html">Mo report Playwright goc</a>
+        <a class="button" href="./bao-cao-playwright-bien-timkiem.md">Mo file bao cao mo ta</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_001</h2>
+            <p>Tu khoa 1 ky tu van tra ve ket qua phu hop.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-ca709--vẫn-trả-về-kết-quả-phù-hợp-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-ca709--vẫn-trả-về-kết-quả-phù-hợp-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-ca709--vẫn-trả-về-kết-quả-phù-hợp-chromium/test-finished-1.png" alt="TC_Search_001 screenshot" />
+      </section>
+
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_002</h2>
+            <p>Tu khoa 2 ky tu van tra ve ket qua phu hop.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-bac1d--vẫn-trả-về-kết-quả-phù-hợp-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-bac1d--vẫn-trả-về-kết-quả-phù-hợp-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-bac1d--vẫn-trả-về-kết-quả-phù-hợp-chromium/test-finished-1.png" alt="TC_Search_002 screenshot" />
+      </section>
+
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_003</h2>
+            <p>Tu khoa 25 ky tu duoc he thong xu ly on dinh.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-f079e-được-hệ-thống-xử-lý-ổn-định-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-f079e-được-hệ-thống-xử-lý-ổn-định-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-f079e-được-hệ-thống-xử-lý-ổn-định-chromium/test-finished-1.png" alt="TC_Search_003 screenshot" />
+      </section>
+
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_004</h2>
+            <p>Tu khoa 254 ky tu duoc he thong xu ly on dinh.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-7f3a8-được-hệ-thống-xử-lý-ổn-định-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-7f3a8-được-hệ-thống-xử-lý-ổn-định-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-7f3a8-được-hệ-thống-xử-lý-ổn-định-chromium/test-finished-1.png" alt="TC_Search_004 screenshot" />
+      </section>
+
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_005</h2>
+            <p>Tu khoa 255 ky tu duoc he thong xu ly on dinh.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-ce8de-được-hệ-thống-xử-lý-ổn-định-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-ce8de-được-hệ-thống-xử-lý-ổn-định-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-ce8de-được-hệ-thống-xử-lý-ổn-định-chromium/test-finished-1.png" alt="TC_Search_005 screenshot" />
+      </section>
+
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_006</h2>
+            <p>Tu khoa 256 ky tu van duoc he thong tiep nhan theo hanh vi hien tai.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-b4d6a--nhận-theo-hành-vi-hiện-tại-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-b4d6a--nhận-theo-hành-vi-hiện-tại-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-b4d6a--nhận-theo-hành-vi-hiện-tại-chromium/test-finished-1.png" alt="TC_Search_006 screenshot" />
+      </section>
+
+      <section class="card">
+        <div class="case-header">
+          <div>
+            <h2>TC_Search_007</h2>
+            <p>De trong tu khoa thi hien thi toan bo ket qua.</p>
+          </div>
+          <span class="status">PASS</span>
+        </div>
+        <div class="artifact-links">
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-f9a32-hì-hiển-thị-toàn-bộ-kết-quả-chromium/video.webm">Xem video</a>
+          <a href="./test-results/Tu_dong_hop_den-bien_timki-f9a32-hì-hiển-thị-toàn-bộ-kết-quả-chromium/trace.zip">Mo trace</a>
+        </div>
+        <img src="./test-results/Tu_dong_hop_den-bien_timki-f9a32-hì-hiển-thị-toàn-bộ-kết-quả-chromium/test-finished-1.png" alt="TC_Search_007 screenshot" />
+      </section>
+    </div>
+
+    <p class="note" style="margin-top: 18px;">
+      Ghi chu: Report Playwright mac dinh van duoc giu nguyen de xem timeline va trace. Trang nay la ban tong hop de xem nhanh ket qua, anh chup va link video/trace trong mot noi.
+    </p>
+  </div>
+</body>
+</html>

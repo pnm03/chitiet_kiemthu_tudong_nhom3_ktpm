@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hàm 2 - handleInputChange (Staff)</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --line: #d7e2ef;
+      --text: #172033;
+      --muted: #6b7280;
+      --pass: #166534;
+      --pass-bg: #dcfce7;
+      --fail: #b91c1c;
+      --fail-bg: #fee2e2;
+      --pending: #92400e;
+      --pending-bg: #fef3c7;
+      --accent: #2563eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(180deg, #eef4fb 0%, #f8fafc 100%);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #f8fafc 100%);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .card-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      overflow-x: auto;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1200px;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 14px 12px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .row-pass td {
+      background: #f7fff9;
+    }
+
+    .row-fail td {
+      background: #fff8f8;
+    }
+
+    .row-pending td {
+      background: #fffdf4;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-pass {
+      color: var(--pass);
+      background: var(--pass-bg);
+    }
+
+    .badge-fail {
+      color: var(--fail);
+      background: var(--fail-bg);
+    }
+
+    .badge-pending {
+      color: var(--pending);
+      background: var(--pending-bg);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    details summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Hàm 2 - handleInputChange (Staff)</h1>
+      <p class="subtitle">Báo cáo chi tiết từng ca kiểm thử Jest với mã testcase, mô tả, mong đợi, kết quả trả về, trạng thái và thời gian thực thi.</p>
+      <div class="summary">
+        <div class="card">
+          <div class="card-label">Tổng số ca</div>
+          <div class="card-value">10</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Đạt</div>
+          <div class="card-value">10</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Không đạt</div>
+          <div class="card-value">0</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Chưa chạy</div>
+          <div class="card-value">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Testcase</th>
+            <th>Dữ liệu kiểm thử</th>
+            <th>Mong đợi</th>
+            <th>Kết quả trả về</th>
+            <th>Trạng thái</th>
+            <th>Thời gian</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+      <tr class="row-pass">
+        <td>B1</td>
+        <td>name = &quot;salary&quot;; value = &quot;12a3&quot;</td>
+        <td>Hàm cập nhật salary = 123</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>7 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B2</td>
+        <td>name = &quot;end_date&quot;; value = &quot;&quot;</td>
+        <td>Hàm cập nhật end_date = null</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>2 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B3</td>
+        <td>name = &quot;user_id&quot;; value = &quot;&quot;</td>
+        <td>Hàm cập nhật user_id = null</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>1 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B4</td>
+        <td>name = &quot;reports_to_user_id&quot;; value = &quot;&quot;</td>
+        <td>Hàm cập nhật reports_to_user_id = null, branch_id = null</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>2 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B5</td>
+        <td>name = &quot;reports_to_user_id&quot;; value = &quot;M01&quot;; manager.user_id = &quot;M01&quot;; manager.branch.branch_id = &quot;B01&quot;</td>
+        <td>Hàm cập nhật reports_to_user_id = M01, branch_id = B01</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>2 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B6</td>
+        <td>name = &quot;reports_to_user_id&quot;; value = &quot;M02&quot;; manager.user_id = &quot;M02&quot;; branch.manager_id = &quot;M02&quot;; branch.branch_id = &quot;B02&quot;</td>
+        <td>Hàm cập nhật reports_to_user_id = M02, branch_id = B02</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>1 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B7</td>
+        <td>name = &quot;reports_to_user_id&quot;; value = &quot;M03&quot;; manager.user_id = &quot;M03&quot;; không có branch phù hợp</td>
+        <td>Hàm cập nhật reports_to_user_id = M03, branch_id = null</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>8 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B8</td>
+        <td>name = &quot;full_name&quot;; value = &quot;Nguyễn Văn A&quot;</td>
+        <td>Hàm cập nhật full_name = Nguyễn Văn A</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>1 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B9</td>
+        <td>name = &quot;salary&quot;; value = &quot;&quot;</td>
+        <td>Hàm cập nhật salary = 0</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>1 ms</td>
+        
+      </tr>
+    
+      <tr class="row-pass">
+        <td>B10</td>
+        <td>name = &quot;user_id&quot;; value = &quot;U01&quot;</td>
+        <td>Hàm cập nhật user_id = U01</td>
+        <td>Đạt như mong đợi</td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td>1 ms</td>
+        
+      </tr>
+    
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

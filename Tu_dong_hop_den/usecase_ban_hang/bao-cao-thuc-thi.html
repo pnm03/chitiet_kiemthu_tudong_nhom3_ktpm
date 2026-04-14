@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bao cao thuc thi - Use case ban hang</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f8fb;
+        --surface: #ffffff;
+        --border: #d9e2f2;
+        --text: #12324a;
+        --muted: #5f7285;
+        --shadow: 0 18px 45px rgba(18, 50, 74, 0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 220px);
+        color: var(--text);
+      }
+      main {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px 0 48px;
+      }
+      .hero, .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+      }
+      .hero {
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        margin: 0 0 10px;
+        font-size: 30px;
+      }
+      .hero p {
+        margin: 6px 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .summary {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .summary span {
+        background: #eef7ff;
+        color: #155a8a;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      .cards {
+        display: grid;
+        gap: 18px;
+      }
+      .card {
+        padding: 22px;
+      }
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .card-head h2 {
+        margin: 4px 0 0;
+        font-size: 22px;
+        line-height: 1.35;
+      }
+      .case-id {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .badge {
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-weight: 700;
+      }
+      .badge.passed {
+        color: #046c3b;
+        background: #daf5e7;
+      }
+      .badge.failed {
+        color: #8c1d18;
+        background: #ffe0dd;
+      }
+      .artifacts {
+        margin-top: 18px;
+      }
+      .artifacts img,
+      .empty {
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: #f8fbff;
+      }
+      .empty {
+        min-height: 180px;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+      }
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .links a,
+      .links span {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        color: #155a8a;
+        background: #f3f8ff;
+        font-weight: 600;
+      }
+      .error-wrap {
+        margin-top: 16px;
+      }
+      .error-wrap h3 {
+        margin: 0 0 10px;
+        font-size: 16px;
+      }
+      .error,
+      .muted {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .error {
+        white-space: pre-wrap;
+        background: #fbfcff;
+        border: 1px solid var(--border);
+        padding: 12px;
+        border-radius: 12px;
+        font-family: Consolas, monospace;
+        font-size: 12px;
+      }
+      @media (max-width: 900px) {
+        .card-head {
+          flex-direction: column;
+        }
+        .meta {
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <h1>Bao cao thuc thi Playwright - Use case ban hang</h1>
+        <p>Moi truong kiem thu: https://qlkh-tkhttt.vercel.app/dashboard/sales/create</p>
+        <p>Bo ca kiem thu tu dong cho quy trinh tao don ban hang, bam theo hanh vi thuc te cua man hinh ban hang tren moi truong deploy.</p>
+        <div class="summary">
+          <span>Tong so ca: 11</span>
+          <span>So ca dat: 11</span>
+          <span>So ca khong dat: 0</span>
+          <span><a href="./playwright-report/index.html">Mo report Playwright goc</a></span>
+        </div>
+        <p class="muted">Luu y: mot so ca duoc giu theo use case nhung assertion bam hanh vi hien tai cua he thong, vi giao dien dang khoa nut hoac tu dong dieu chinh du lieu thay vi hien thong bao loi truc tiep.</p>
+      </section>
+
+      <section class="cards">
+        
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC1</p>
+              <h2>TC1 - Them san pham hop le vao don va cap nhat thanh tien dung</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>7115 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-8d3ba-va-cap-nhat-thanh-tien-dung-chromium/summary.png" alt="TC1 - Them san pham hop le vao don va cap nhat thanh tien dung" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-8d3ba-va-cap-nhat-thanh-tien-dung-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-8d3ba-va-cap-nhat-thanh-tien-dung-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC2</p>
+              <h2>TC2 - Nhap so luong bang 0 thi he thong tu dua ve 1 theo hanh vi hien tai</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>4960 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-24f7d--ve-1-theo-hanh-vi-hien-tai-chromium/summary.png" alt="TC2 - Nhap so luong bang 0 thi he thong tu dua ve 1 theo hanh vi hien tai" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-24f7d--ve-1-theo-hanh-vi-hien-tai-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-24f7d--ve-1-theo-hanh-vi-hien-tai-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC3</p>
+              <h2>TC3 - So luong vuot ton kho thi hien canh bao va chan tao don</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>5135 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-48b67-en-canh-bao-va-chan-tao-don-chromium/summary.png" alt="TC3 - So luong vuot ton kho thi hien canh bao va chan tao don" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-48b67-en-canh-bao-va-chan-tao-don-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-48b67-en-canh-bao-va-chan-tao-don-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC4</p>
+              <h2>TC4 - Khong co san pham trong don thi nut tao don bi khoa</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>3599 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-ef32e-don-thi-nut-tao-don-bi-khoa-chromium/summary.png" alt="TC4 - Khong co san pham trong don thi nut tao don bi khoa" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-ef32e-don-thi-nut-tao-don-bi-khoa-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-ef32e-don-thi-nut-tao-don-bi-khoa-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC5</p>
+              <h2>TC5 - Them nhieu san pham vao don va tinh tong tien dung</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>6928 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-5727f--don-va-tinh-tong-tien-dung-chromium/summary.png" alt="TC5 - Them nhieu san pham vao don va tinh tong tien dung" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-5727f--don-va-tinh-tong-tien-dung-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-5727f--don-va-tinh-tong-tien-dung-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC6</p>
+              <h2>TC6 - Sua so luong san pham trong don dang tao thi gia tien duoc cap nhat</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>5564 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-1d2ea--thi-gia-tien-duoc-cap-nhat-chromium/summary.png" alt="TC6 - Sua so luong san pham trong don dang tao thi gia tien duoc cap nhat" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-1d2ea--thi-gia-tien-duoc-cap-nhat-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-1d2ea--thi-gia-tien-duoc-cap-nhat-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC7</p>
+              <h2>TC7 - Xoa san pham khoi don thi danh sach va tong tien duoc cap nhat</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>5594 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-5090d--va-tong-tien-duoc-cap-nhat-chromium/summary.png" alt="TC7 - Xoa san pham khoi don thi danh sach va tong tien duoc cap nhat" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-5090d--va-tong-tien-duoc-cap-nhat-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-5090d--va-tong-tien-duoc-cap-nhat-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC8</p>
+              <h2>TC8 - Mo popup tao don nhung chua lien ket khach hang thi nut gui don bi khoa</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>4969 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-49a8c-ang-thi-nut-gui-don-bi-khoa-chromium/summary.png" alt="TC8 - Mo popup tao don nhung chua lien ket khach hang thi nut gui don bi khoa" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-49a8c-ang-thi-nut-gui-don-bi-khoa-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-49a8c-ang-thi-nut-gui-don-bi-khoa-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC9</p>
+              <h2>TC9 - Lien ket khach hang vao don thi thong tin khach hang hien thi tren don</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>5805 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-6697c-hach-hang-hien-thi-tren-don-chromium/summary.png" alt="TC9 - Lien ket khach hang vao don thi thong tin khach hang hien thi tren don" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-6697c-hach-hang-hien-thi-tren-don-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-6697c-hach-hang-hien-thi-tren-don-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC10</p>
+              <h2>TC10 - Tao don gui di thanh cong voi khach hang va Momo</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>9786 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-fc415-cong-voi-khach-hang-va-Momo-chromium/summary.png" alt="TC10 - Tao don gui di thanh cong voi khach hang va Momo" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-fc415-cong-voi-khach-hang-va-Momo-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-fc415-cong-voi-khach-hang-va-Momo-chromium/trace.zip">Mo trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">TC11</p>
+              <h2>TC11 - Tao nhieu tab hoa don va luu thanh cong tab dang duoc chon</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>10469 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-usecase_ba-95855-anh-cong-tab-dang-duoc-chon-chromium/summary.png" alt="TC11 - Tao nhieu tab hoa don va luu thanh cong tab dang duoc chon" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-usecase_ba-95855-anh-cong-tab-dang-duoc-chon-chromium/video.webm">Xem video</a>
+            <span>Khong co trace</span>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chu thuc thi</h3>
+            <p class="muted">Khong co loi ghi nhan.</p>
+          </div>
+        </section>
+      
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Báo cáo thực thi - Bảng quyết định đăng nhập</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f8fb;
+        --surface: #ffffff;
+        --border: #d9e2f2;
+        --text: #12324a;
+        --muted: #5f7285;
+        --pass: #0f9d58;
+        --fail: #d93025;
+        --shadow: 0 18px 45px rgba(18, 50, 74, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 220px);
+        color: var(--text);
+      }
+
+      main {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px 0 48px;
+      }
+
+      .hero {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        margin-bottom: 24px;
+      }
+
+      .hero h1 {
+        margin: 0 0 10px;
+        font-size: 30px;
+      }
+
+      .hero p {
+        margin: 6px 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .summary {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+
+      .summary span {
+        background: #eef7ff;
+        color: #155a8a;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .cards {
+        display: grid;
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .card-head h2 {
+        margin: 4px 0 0;
+        font-size: 22px;
+        line-height: 1.35;
+      }
+
+      .case-id {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .badge {
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-weight: 700;
+      }
+
+      .badge.passed {
+        color: #046c3b;
+        background: #daf5e7;
+      }
+
+      .badge.failed {
+        color: #8c1d18;
+        background: #ffe0dd;
+      }
+
+      .artifacts {
+        margin-top: 18px;
+      }
+
+      .artifacts img,
+      .empty {
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: #f8fbff;
+      }
+
+      .empty {
+        min-height: 180px;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+      }
+
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .links a,
+      .links span {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        color: #155a8a;
+        background: #f3f8ff;
+        font-weight: 600;
+      }
+
+      .error-wrap {
+        margin-top: 16px;
+      }
+
+      .error-wrap h3 {
+        margin: 0 0 10px;
+        font-size: 16px;
+      }
+
+      .error,
+      .muted {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .error {
+        white-space: pre-wrap;
+        background: #fbfcff;
+        border: 1px solid var(--border);
+        padding: 12px;
+        border-radius: 12px;
+        font-family: Consolas, monospace;
+        font-size: 12px;
+      }
+
+      .notes {
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px dashed var(--border);
+      }
+
+      @media (max-width: 900px) {
+        .card-head {
+          flex-direction: column;
+        }
+
+        .meta {
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <h1>Báo cáo thực thi Playwright - Bảng quyết định đăng nhập</h1>
+        <p>Môi trường kiểm thử: https://qlkh-tkhttt.vercel.app/auth/signin</p>
+        <p>Bộ ca kiểm thử tự động cho chức năng đăng nhập theo bảng quyết định, bám hành vi thực tế của môi trường deploy hiện tại.</p>
+        <div class="summary">
+          <span>Tổng số ca: 7</span>
+          <span>Số ca đạt: 7</span>
+          <span>Số ca không đạt: 0</span>
+          <span><a href="./playwright-report/index.html">Mở report Playwright gốc</a></span>
+        </div>
+        <div class="notes">
+          <p class="muted">Ghi chú: Ca R6 được thực hiện trên tài khoản đang ở trạng thái <code>locked</code> sẵn của môi trường deploy. Ca R7 ghi nhận hành vi thực tế hiện tại của hệ thống với tài khoản <code>inactive</code>, trong đó giao diện vẫn hiển thị lỗi chung thay vì thông báo chuyên biệt.</p>
+        </div>
+      </section>
+
+      <section class="cards">
+        
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R1</p>
+              <h2>R1 - Đăng nhập thành công với tài khoản admin và truy cập được trang danh mục sản phẩm</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>12917 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-8e469-ược-trang-danh-mục-sản-phẩm-chromium/summary.png" alt="R1 - Đăng nhập thành công với tài khoản admin và truy cập được trang danh mục sản phẩm" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-8e469-ược-trang-danh-mục-sản-phẩm-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-8e469-ược-trang-danh-mục-sản-phẩm-chromium/trace.zip">Mở trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R2</p>
+              <h2>R2 - Đăng nhập thành công với tài khoản NVBH nhưng bị từ chối ở chức năng thêm sản phẩm</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>6006 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-7e6ce-i-ở-chức-năng-thêm-sản-phẩm-chromium/summary.png" alt="R2 - Đăng nhập thành công với tài khoản NVBH nhưng bị từ chối ở chức năng thêm sản phẩm" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-7e6ce-i-ở-chức-năng-thêm-sản-phẩm-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-7e6ce-i-ở-chức-năng-thêm-sản-phẩm-chromium/trace.zip">Mở trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R3</p>
+              <h2>R3 - Đăng nhập thành công với tài khoản NVK và truy cập được chức năng thêm sản phẩm</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>6809 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-057b6-ược-chức-năng-thêm-sản-phẩm-chromium/summary.png" alt="R3 - Đăng nhập thành công với tài khoản NVK và truy cập được chức năng thêm sản phẩm" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-057b6-ược-chức-năng-thêm-sản-phẩm-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-057b6-ược-chức-năng-thêm-sản-phẩm-chromium/trace.zip">Mở trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R4</p>
+              <h2>R4 - Username không tồn tại thì hệ thống từ chối đăng nhập</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>2446 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-88ee6--hệ-thống-từ-chối-đăng-nhập-chromium/summary.png" alt="R4 - Username không tồn tại thì hệ thống từ chối đăng nhập" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-88ee6--hệ-thống-từ-chối-đăng-nhập-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-88ee6--hệ-thống-từ-chối-đăng-nhập-chromium/trace.zip">Mở trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R5</p>
+              <h2>R5 - Sai mật khẩu thì hệ thống từ chối đăng nhập</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>2962 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-65c8b--hệ-thống-từ-chối-đăng-nhập-chromium/summary.png" alt="R5 - Sai mật khẩu thì hệ thống từ chối đăng nhập" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-65c8b--hệ-thống-từ-chối-đăng-nhập-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-65c8b--hệ-thống-từ-chối-đăng-nhập-chromium/trace.zip">Mở trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R6</p>
+              <h2>R6 - Tài khoản đã bị khóa thì hiển thị popup khóa tài khoản</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>1916 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-08112-ển-thị-popup-khóa-tài-khoản-chromium/summary.png" alt="R6 - Tài khoản đã bị khóa thì hiển thị popup khóa tài khoản" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-08112-ển-thị-popup-khóa-tài-khoản-chromium/video.webm">Xem video</a>
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-08112-ển-thị-popup-khóa-tài-khoản-chromium/trace.zip">Mở trace</a>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <p class="case-id">R7</p>
+              <h2>R7 - Tài khoản inactive bị từ chối đăng nhập theo hành vi hiện tại của môi trường deploy</h2>
+            </div>
+            <div class="meta">
+              <span class="badge passed">PASSED</span>
+              <span>3275 ms</span>
+            </div>
+          </div>
+
+          <div class="artifacts">
+            <img src="test-results/Tu_dong_hop_den-bang_quyet-a3926-n-tại-của-môi-trường-deploy-chromium/summary.png" alt="R7 - Tài khoản inactive bị từ chối đăng nhập theo hành vi hiện tại của môi trường deploy" />
+          </div>
+
+          <div class="links">
+            <a href="test-results/Tu_dong_hop_den-bang_quyet-a3926-n-tại-của-môi-trường-deploy-chromium/video.webm">Xem video</a>
+            <span>Không có trace</span>
+          </div>
+
+          <div class="error-wrap">
+            <h3>Ghi chú thực thi</h3>
+            <p class="muted">Không có lỗi ghi nhận.</p>
+          </div>
+        </section>
+      
+      </section>
+    </main>
+  </body>
+</html>
