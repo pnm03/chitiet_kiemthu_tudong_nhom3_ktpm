@@ -6,6 +6,7 @@ Tai lieu nay tong hop toan bo ket qua kiem thu tu dong da thuc hien trong nhom, 
 
 - Kiem thu don vi bang `Jest`
 - Kiem thu hop den tu dong bang `Playwright`
+- Ma nguon 9 ham duoc su dung trong phan kiem thu hop trang
 
 Muc tieu cua file nay la giup thanh vien trong nhom mo truc tiep tren GitHub va xem nhanh:
 
@@ -87,7 +88,13 @@ Minh chung:
 
 ![Ham 3](./TEST_1/Ham_3/jest-reports/delete-invoice-results.png)
 
-## 5. Kiem thu hop den tu dong bang Playwright
+## 5. Ma nguon 9 ham kiem thu hop trang
+
+Thu muc sau tong hop lai 9 ham da duoc nhom chon de phan tich va thiet ke kiem thu hop trang. File trong thu muc nay mo truc tiep tren GitHub se hien thi duoc ngay duoi dang Markdown, phu hop de chia se nhanh cho thanh vien trong nhom.
+
+- [Ma nguon 9 ham kiem thu hop trang](./MA_NGUON_HOP_TRANG_9_HAM/9_ham_kiem_thu_hop_trang.md)
+
+## 6. Kiem thu hop den tu dong bang Playwright
 
 ### 5.1. Kiem thu gia tri bien - Tim kiem san pham
 
