@@ -2,6 +2,10 @@
 
 Kho luu tru cac thu muc kiem thu tu dong de chia se voi nhom.
 
+## Xem nhanh
+
+- [Bao cao tong hop kiem thu tu dong](./BAO_CAO_TONG_HOP_KIEM_THU_TU_DONG.md)
+
 ## Cau truc
 
 - `TEST_1/Ham_1`: Kiem thu don vi bang Jest cho Ham 1
