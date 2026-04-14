@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chi tiet kiem thu tu dong nhom 3</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f7fb;
+        --surface: #ffffff;
+        --text: #16324f;
+        --muted: #5f7285;
+        --border: #d7e3f4;
+        --accent: #1f6feb;
+        --shadow: 0 18px 50px rgba(22, 50, 79, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #eaf2ff 0%, var(--bg) 240px);
+        color: var(--text);
+      }
+
+      main {
+        width: min(1120px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .hero,
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+
+      h1, h2 {
+        margin: 0;
+      }
+
+      .hero p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .card h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        background: var(--accent);
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      a.secondary {
+        background: #eef4ff;
+        color: var(--accent);
+        border: 1px solid #c8daf8;
+      }
+
+      .section-title {
+        margin: 0 0 14px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <h1>Chi tiet kiem thu tu dong nhom 3</h1>
+        <p>Trang tong hop cac minh chung kiem thu tu dong bang Jest va Playwright, phuc vu chia se report, video, trace, screenshot va ket qua thuc thi.</p>
+      </section>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Jest - Kiem thu don vi</h2>
+          <p>Cac bo test Ham 1, Ham 2 va Ham 3, bao gom HTML report, JSON ket qua va coverage report.</p>
+          <div class="links">
+            <a href="./TEST_1/Ham_1/jest-reports/stock-validation-results.html">Ham 1 - Ket qua Jest</a>
+            <a class="secondary" href="./TEST_1/Ham_1/coverage/lcov-report/index.html">Ham 1 - Coverage</a>
+            <a href="./TEST_1/Ham_2/jest-reports/staff-handle-input-change-results.html">Ham 2 - Ket qua Jest</a>
+            <a class="secondary" href="./TEST_1/Ham_2/coverage/lcov-report/index.html">Ham 2 - Coverage</a>
+            <a href="./TEST_1/Ham_3/jest-reports/delete-invoice-results.html">Ham 3 - Ket qua Jest</a>
+            <a class="secondary" href="./TEST_1/Ham_3/coverage/lcov-report/index.html">Ham 3 - Coverage</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Playwright - Hop den tu dong</h2>
+          <p>Cac bo test hop den gom gia tri bien tim kiem, bang quyet dinh dang nhap va use case ban hang. Moi bo deu co report goc Playwright va trang tong hop minh chung.</p>
+          <div class="links">
+            <a href="./Tu_dong_hop_den/bien_timkiem/bao-cao-thuc-thi.html">Bien tim kiem - Bao cao tong hop</a>
+            <a class="secondary" href="./Tu_dong_hop_den/bien_timkiem/playwright-report/index.html">Bien tim kiem - Playwright report</a>
+            <a href="./Tu_dong_hop_den/bang_quyet_dinh_dang_nhap/bao-cao-thuc-thi.html">Bang quyet dinh dang nhap - Bao cao tong hop</a>
+            <a class="secondary" href="./Tu_dong_hop_den/bang_quyet_dinh_dang_nhap/playwright-report/index.html">Bang quyet dinh dang nhap - Playwright report</a>
+            <a href="./Tu_dong_hop_den/usecase_ban_hang/bao-cao-thuc-thi.html">Use case ban hang - Bao cao tong hop</a>
+            <a class="secondary" href="./Tu_dong_hop_den/usecase_ban_hang/playwright-report/index.html">Use case ban hang - Playwright report</a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
