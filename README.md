@@ -13,3 +13,7 @@ Kho lưu trữ này dùng để chia sẻ các file phục vụ kiểm thử t�
 - Hàm 1: `validateStockBeforeCheckout()`
 - Hàm 2: `handleInputChange()`
 - Hàm 3: `deleteInvoice()`
+
+## Báo cáo và kết quả
+
+- [Báo cáo kiểm thử Hàm 1](./K%E1%BA%BFt%20qu%E1%BA%A3%20ki%E1%BB%83m%20th%E1%BB%AD/H%C3%A0m%201/bao-cao-kiem-thu-ham-1.md)
