@@ -108,7 +108,10 @@ B10 dùng để kiểm tra biểu thức `product.stock_quantity || 0`. Khi `sto
 
 File kết quả:
 
+- [bao-cao-ket-qua.html](./Lần%201%20-%20C1/bao-cao-ket-qua.html)
 - [ket-qua-lan-1-C1.md](./Lần%201%20-%20C1/ket-qua-lan-1-C1.md)
+- [coverage-html/index.html](./Lần%201%20-%20C1/coverage-html/index.html)
+- [coverage-html/stock-validation.ts.html](./Lần%201%20-%20C1/coverage-html/stock-validation.ts.html)
 - [jest-result.json](./Lần%201%20-%20C1/jest-result.json)
 - [coverage-final.json](./Lần%201%20-%20C1/coverage-final.json)
 
@@ -130,7 +133,10 @@ Kết luận lần 1: Bộ kiểm thử ban đầu đã thực thi đầy đủ 
 
 File kết quả:
 
+- [bao-cao-ket-qua.html](./Lần%202%20-%20C2-C3/bao-cao-ket-qua.html)
 - [ket-qua-lan-2-C2-C3.md](./Lần%202%20-%20C2-C3/ket-qua-lan-2-C2-C3.md)
+- [coverage-html/index.html](./Lần%202%20-%20C2-C3/coverage-html/index.html)
+- [coverage-html/stock-validation.ts.html](./Lần%202%20-%20C2-C3/coverage-html/stock-validation.ts.html)
 - [jest-result.json](./Lần%202%20-%20C2-C3/jest-result.json)
 - [coverage-final.json](./Lần%202%20-%20C2-C3/coverage-final.json)
 

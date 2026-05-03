@@ -1,0 +1,136 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hàm 1 - Kết quả kiểm thử lần 2</title>
+  <style>
+    :root {
+      --bg: #f4f8f6;
+      --panel: #ffffff;
+      --ink: #102033;
+      --muted: #607085;
+      --line: #d9e7df;
+      --green-bg: #eafaf0;
+      --green: #15803d;
+      --yellow-bg: #fff7d6;
+      --yellow: #9a6700;
+      --blue: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px; background: var(--bg); color: var(--ink); font-family: "Segoe UI", Tahoma, sans-serif; }
+    .page { max-width: 1180px; margin: 0 auto; }
+    .hero { background: linear-gradient(135deg, #0f766e, #14532d); color: white; border-radius: 18px; padding: 28px 32px; box-shadow: 0 18px 45px rgba(15, 118, 110, .18); }
+    .hero h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    .hero p { margin: 0; opacity: .9; font-size: 15px; }
+    .section { margin-top: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(16, 32, 51, .06); }
+    .section h2 { margin: 0; padding: 18px 22px; font-size: 18px; border-bottom: 1px solid var(--line); background: #fbfefd; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: middle; }
+    th { color: #24364d; font-weight: 700; background: #f7fbf9; }
+    tr.pass-row, tbody tr { background: #f2fff7; }
+    tbody tr:hover { background: #eafaf0; }
+    .metric { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr; }
+    .metric > div { padding: 14px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #eefae8; }
+    .metric > div:last-child { border-right: 0; }
+    .metric .label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .metric .value { font-size: 18px; font-weight: 800; }
+    .metric .ratio { color: var(--muted); font-size: 13px; margin-left: 6px; }
+    .metric .warn { background: var(--yellow-bg); color: var(--yellow); }
+    .bar { height: 18px; background: #d9ead1; border-radius: 3px; overflow: hidden; margin-top: 8px; }
+    .bar span { display: block; height: 100%; background: #348b25; width: 100%; }
+    .bar.warn span { width: 80%; background: #c58a00; }
+    .badge { display: inline-block; padding: 7px 13px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .02em; }
+    .badge.pass { color: var(--green); background: #d9fbe5; }
+    .links { display: flex; gap: 12px; flex-wrap: wrap; padding: 18px 22px; }
+    .links a { color: var(--blue); text-decoration: none; font-weight: 700; background: #eff6ff; border: 1px solid #bfdbfe; padding: 10px 14px; border-radius: 10px; }
+    pre { margin: 0; padding: 18px 22px; overflow: auto; background: #0f172a; color: #e2e8f0; font-size: 13px; line-height: 1.55; }
+    .note { padding: 18px 22px; line-height: 1.7; color: #26384f; background: #fbfefd; }
+    .strong { font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>Hàm 1 - Kết quả kiểm thử lần 2</h1>
+      <p>Bộ 10 ca kiểm thử sau khi bổ sung B9 và B10 để bao phủ nhánh ẩn, dùng để đánh giá C2/C3.</p>
+    </section>
+
+    <section class="section">
+      <h2>Tổng quan coverage</h2>
+      <div class="metric">
+        <div>
+          <span class="label">File</span>
+          <span class="value">stock-validation.ts</span>
+          <div class="bar"><span></span></div>
+        </div>
+        <div>
+          <span class="label">Statements</span>
+          <span class="value">100%</span><span class="ratio">28/28</span>
+        </div>
+        <div class="">
+          <span class="label">Branches</span>
+          <span class="value">100%</span><span class="ratio">10/10</span>
+          <div class="bar "><span></span></div>
+        </div>
+        <div>
+          <span class="label">Functions</span>
+          <span class="value">100%</span><span class="ratio">2/2</span>
+        </div>
+        <div>
+          <span class="label">Lines</span>
+          <span class="value">100%</span><span class="ratio">27/27</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Danh sách testcase</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:90px">Testcase</th>
+            <th>Dữ liệu kiểm thử</th>
+            <th style="width:180px">Mong đợi</th>
+            <th style="width:160px">Kết quả trả về</th>
+            <th style="width:140px">Trạng thái</th>
+            <th style="width:120px">Thời gian</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>B1</td><td>Không có hóa đơn</td><td>Hàm trả về True</td><td>True</td><td><span class='badge pass'>PASSED</span></td><td>4 ms</td></tr>
+<tr><td>B2</td><td>Hóa đơn không có sản phẩm</td><td>Hàm trả về True</td><td>True</td><td><span class='badge pass'>PASSED</span></td><td>2 ms</td></tr>
+<tr><td>B3</td><td>Một sản phẩm đủ tồn kho</td><td>Hàm trả về True</td><td>True</td><td><span class='badge pass'>PASSED</span></td><td>1 ms</td></tr>
+<tr><td>B4</td><td>Cùng product_id được cộng dồn đúng và vẫn đủ tồn kho</td><td>Hàm trả về True</td><td>True</td><td><span class='badge pass'>PASSED</span></td><td>1 ms</td></tr>
+<tr><td>B5</td><td>Nhiều hóa đơn, tất cả sản phẩm đều đủ tồn kho</td><td>Hàm trả về True</td><td>True</td><td><span class='badge pass'>PASSED</span></td><td>1 ms</td></tr>
+<tr><td>B6</td><td>Sản phẩm đầu tiên thiếu tồn kho</td><td>Hàm trả về False</td><td>False</td><td><span class='badge pass'>PASSED</span></td><td>2 ms</td></tr>
+<tr><td>B7</td><td>Cùng hóa đơn có sản phẩm thiếu tồn kho</td><td>Hàm trả về False</td><td>False</td><td><span class='badge pass'>PASSED</span></td><td>1 ms</td></tr>
+<tr><td>B8</td><td>Hóa đơn sau mới phát sinh thiếu tồn kho</td><td>Hàm trả về False</td><td>False</td><td><span class='badge pass'>PASSED</span></td><td>1 ms</td></tr>
+<tr><td>B9</td><td>Không truyền quantity nên lấy mặc định 1 và vẫn đủ tồn kho</td><td>Hàm trả về True</td><td>True</td><td><span class='badge pass'>PASSED</span></td><td>1 ms</td></tr>
+<tr><td>B10</td><td>stock_quantity = null nên lấy mặc định 0 và phát sinh thiếu tồn kho</td><td>Hàm trả về False</td><td>False</td><td><span class='badge pass'>PASSED</span></td><td>0 ms</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Lệnh chạy</h2>
+      <pre>npx jest TEST_1/Ham_1/validateStockBeforeCheckout.C2-C3.test.ts --coverage --collectCoverageFrom=TEST_1/Ham_1/stock-validation.ts --coverageDirectory=TEST_1/Ham_1/ket-qua-lan-2/coverage --json --outputFile=TEST_1/Ham_1/ket-qua-lan-2/jest-result.json</pre>
+    </section>
+
+    <section class="section">
+      <h2>File coverage chi tiết</h2>
+      <div class="links">
+        <a href="coverage-html/index.html">Mở bảng coverage Istanbul</a>
+        <a href="coverage-html/stock-validation.ts.html">Mở coverage theo dòng code</a>
+        <a href="jest-result.json">Mở JSON kết quả Jest</a>
+        <a href="coverage-final.json">Mở JSON coverage</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Kết luận</h2>
+      <div class="note">10/10 testcase đều PASSED. Statements, Branches, Functions và Lines đều đạt 100%. Hai ca B9 và B10 đã bao phủ nhánh lấy giá trị mặc định của quantity và stock_quantity. Vì vậy lần chạy 2 kết luận hàm validateStockBeforeCheckout() đạt C2/C3.</div>
+    </section>
+  </main>
+</body>
+</html>
