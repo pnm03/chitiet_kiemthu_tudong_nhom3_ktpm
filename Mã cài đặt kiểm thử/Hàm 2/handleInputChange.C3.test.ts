@@ -52,18 +52,16 @@ function executeHandleInputChange({
   )
 
   return {
-    previousState,
     nextState,
     setFormData,
   }
 }
 
-describe('handleInputChange - staff page', () => {
+describe('handleInputChange - lan 3 - bo ca kiem thu C3', () => {
   test.each([
     {
       testcase: 'B1',
-      title:
-        'B1 | name = "salary"; value = "12a3" | H\u00e0m c\u1eadp nh\u1eadt salary = 123',
+      title: 'B1 | salary co ky tu chu thi chi lay phan so',
       input: {
         name: 'salary',
         value: '12a3',
@@ -74,8 +72,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B2',
-      title:
-        'B2 | name = "end_date"; value = "" | H\u00e0m c\u1eadp nh\u1eadt end_date = null',
+      title: 'B2 | end_date rong thi cap nhat null',
       input: {
         name: 'end_date',
         value: '',
@@ -86,8 +83,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B3',
-      title:
-        'B3 | name = "user_id"; value = "" | H\u00e0m c\u1eadp nh\u1eadt user_id = null',
+      title: 'B3 | user_id rong thi cap nhat null',
       input: {
         name: 'user_id',
         value: '',
@@ -98,8 +94,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B4',
-      title:
-        'B4 | name = "reports_to_user_id"; value = "" | H\u00e0m c\u1eadp nh\u1eadt reports_to_user_id = null, branch_id = null',
+      title: 'B4 | reports_to_user_id rong thi xoa nguoi quan ly va chi nhanh',
       input: {
         name: 'reports_to_user_id',
         value: '',
@@ -111,8 +106,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B5',
-      title:
-        'B5 | name = "reports_to_user_id"; value = "M01"; manager.user_id = "M01"; manager.branch.branch_id = "B01" | H\u00e0m c\u1eadp nh\u1eadt reports_to_user_id = M01, branch_id = B01',
+      title: 'B5 | nguoi quan ly co branch truc tiep',
       input: {
         name: 'reports_to_user_id',
         value: 'M01',
@@ -132,8 +126,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B6',
-      title:
-        'B6 | name = "reports_to_user_id"; value = "M02"; manager.user_id = "M02"; branch.manager_id = "M02"; branch.branch_id = "B02" | H\u00e0m c\u1eadp nh\u1eadt reports_to_user_id = M02, branch_id = B02',
+      title: 'B6 | nguoi quan ly khong co branch truc tiep nhung co branch phu trach',
       input: {
         name: 'reports_to_user_id',
         value: 'M02',
@@ -157,8 +150,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B7',
-      title:
-        'B7 | name = "reports_to_user_id"; value = "M03"; manager.user_id = "M03"; kh\u00f4ng c\u00f3 branch ph\u00f9 h\u1ee3p | H\u00e0m c\u1eadp nh\u1eadt reports_to_user_id = M03, branch_id = null',
+      title: 'B7 | nguoi quan ly khong co branch phu hop',
       input: {
         name: 'reports_to_user_id',
         value: 'M03',
@@ -176,20 +168,18 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B8',
-      title:
-        'B8 | name = "full_name"; value = "Nguy\u1ec5n V\u0103n A" | H\u00e0m c\u1eadp nh\u1eadt full_name = Nguy\u1ec5n V\u0103n A',
+      title: 'B8 | truong thong thuong thi cap nhat theo value',
       input: {
         name: 'full_name',
-        value: 'Nguy\u1ec5n V\u0103n A',
+        value: 'Nguyen Van A',
       },
       expected: {
-        full_name: 'Nguy\u1ec5n V\u0103n A',
+        full_name: 'Nguyen Van A',
       },
     },
     {
       testcase: 'B9',
-      title:
-        'B9 | name = "salary"; value = "" | H\u00e0m c\u1eadp nh\u1eadt salary = 0',
+      title: 'B9 | salary rong thi cap nhat salary = 0',
       input: {
         name: 'salary',
         value: '',
@@ -200,8 +190,7 @@ describe('handleInputChange - staff page', () => {
     },
     {
       testcase: 'B10',
-      title:
-        'B10 | name = "user_id"; value = "U01" | H\u00e0m c\u1eadp nh\u1eadt user_id = U01',
+      title: 'B10 | user_id co gia tri thi cap nhat dung gia tri',
       input: {
         name: 'user_id',
         value: 'U01',
@@ -210,7 +199,32 @@ describe('handleInputChange - staff page', () => {
         user_id: 'U01',
       },
     },
-  ])('$title', ({ input, expected }) => {
+    {
+      testcase: 'B11',
+      title: 'B11 | end_date co gia tri thi di theo nhanh cap nhat thong thuong',
+      input: {
+        name: 'end_date',
+        value: '2026-05-07',
+      },
+      expected: {
+        end_date: '2026-05-07',
+      },
+    },
+    {
+      testcase: 'B12',
+      title: 'B12 | reports_to_user_id khong tim thay manager va branch',
+      input: {
+        name: 'reports_to_user_id',
+        value: 'M04',
+        managers: [],
+        branches: [],
+      },
+      expected: {
+        reports_to_user_id: 'M04',
+        branch_id: null,
+      },
+    },
+  ])('$testcase - $title', ({ input, expected }) => {
     const { nextState, setFormData } = executeHandleInputChange(input)
 
     expect(setFormData).toHaveBeenCalledTimes(1)
