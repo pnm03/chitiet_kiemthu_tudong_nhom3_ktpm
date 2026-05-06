@@ -1,0 +1,6 @@
+﻿"Id","Method","Path","Input","Purpose","Expected","Actual","Assertions","Status","Time"
+"API_001","GET","/api/categories","GET /api/categories không kèm session","Kiểm tra API danh mục bị chặn khi chưa đăng nhập","401 Unauthorized, code AUTH_REQUIRED","401 Unauthorized","3","PASSED","432 ms"
+"API_002","POST","/api/categories","POST /api/categories không kèm session, body thiếu dữ liệu","Kiểm tra API tạo danh mục bị chặn trước khi xử lý dữ liệu","401 Unauthorized, code AUTH_REQUIRED","401 Unauthorized","3","PASSED","179 ms"
+"API_003","GET","/api/check-tables","GET /api/check-tables không kèm session","Kiểm tra API nội bộ kiểm tra bảng bị chặn khi chưa đăng nhập","401 Unauthorized, code AUTH_REQUIRED","401 Unauthorized","3","PASSED","171 ms"
+"API_004","GET","/api/partners/returns","GET /api/partners/returns không kèm session","Kiểm tra API danh sách đổi trả bị chặn khi chưa đăng nhập","401 Unauthorized, code AUTH_REQUIRED","401 Unauthorized","3","PASSED","164 ms"
+"API_005","POST","/api/partners/returns","POST /api/partners/returns không kèm session, body thiếu dữ liệu","Kiểm tra API tạo yêu cầu đổi trả bị chặn trước khi ghi dữ liệu","401 Unauthorized, code AUTH_REQUIRED","401 Unauthorized","3","PASSED","170 ms"
