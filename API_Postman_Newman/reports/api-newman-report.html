@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
@@ -8,7 +8,7 @@
     :root { --bg:#f4f8fb; --panel:#fff; --ink:#102033; --muted:#637083; --line:#dbe7ef; --green:#15803d; --green-bg:#e9fbf0; --blue:#1d4ed8; --slate:#334155; }
     * { box-sizing:border-box; }
     body { margin:0; padding:28px; background:var(--bg); color:var(--ink); font-family:"Segoe UI", Tahoma, sans-serif; }
-    .page { max-width:1180px; margin:0 auto; }
+    .page { max-width:1280px; margin:0 auto; }
     .hero { background:linear-gradient(135deg,#0f766e,#1d4ed8); color:white; border-radius:18px; padding:28px 32px; box-shadow:0 18px 45px rgba(29,78,216,.18); }
     .hero h1 { margin:0 0 8px; font-size:28px; letter-spacing:-.02em; }
     .hero p { margin:0; opacity:.92; font-size:15px; }
@@ -19,44 +19,56 @@
     .section { margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(16,32,51,.06); }
     .section h2 { margin:0; padding:18px 22px; font-size:18px; border-bottom:1px solid var(--line); background:#fbfdff; }
     table { width:100%; border-collapse:collapse; }
-    th, td { text-align:left; padding:14px 16px; border-bottom:1px solid var(--line); font-size:14px; vertical-align:middle; }
+    th, td { text-align:left; padding:13px 14px; border-bottom:1px solid var(--line); font-size:13px; vertical-align:middle; }
     th { color:#24364d; font-weight:700; background:#f7fbf9; }
     tbody tr { background:#f2fff7; }
     tbody tr:hover { background:#eafaf0; }
+    code { color:#0f172a; font-family:Consolas, monospace; }
     .method { display:inline-block; min-width:54px; text-align:center; padding:5px 9px; border-radius:8px; color:#075985; background:#e0f2fe; font-weight:800; font-size:12px; }
     .badge { display:inline-block; padding:7px 13px; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.02em; }
     .badge.pass { color:var(--green); background:#d9fbe5; }
     pre { margin:0; padding:18px 22px; overflow:auto; background:#0f172a; color:#e2e8f0; font-size:13px; line-height:1.55; }
     .note { padding:18px 22px; line-height:1.7; color:#26384f; background:#fbfefd; }
+    @media (max-width:900px) { .cards { grid-template-columns:1fr 1fr; } body { padding:16px; } table { min-width:980px; } .section { overflow:auto; } }
   </style>
 </head>
 <body>
-  <main class="page">
+  <div class="page">
     <section class="hero">
       <h1>Báo cáo kiểm thử tự động API với Postman/Newman</h1>
-      <p>Kiểm tra cơ chế từ chối truy cập trái phép vào các API nội bộ của hệ thống quản lý bán hàng.</p>
+      <p>Phạm vi: kiểm thử API khi chưa đăng nhập, đăng nhập admin, đăng nhập nhân viên bán hàng và gọi API sau xác thực.</p>
     </section>
-    <section class="cards">
-      <div class="card"><span class="label">Requests</span><span class="value">5</span></div>
-      <div class="card"><span class="label">Failed Requests</span><span class="value">0</span></div>
-      <div class="card"><span class="label">Assertions</span><span class="value">15</span></div>
-      <div class="card"><span class="label">Failed Assertions</span><span class="value">0</span></div>
-      <div class="card"><span class="label">Duration</span><span class="value">1477 ms</span></div>
-    </section>
+    <div class="cards">
+      <div class="card"><span class="label">Requests</span><span class="value">11/11</span></div>
+      <div class="card"><span class="label">Assertions</span><span class="value">37/37</span></div>
+      <div class="card"><span class="label">Failed</span><span class="value">0</span></div>
+      <div class="card"><span class="label">Total duration</span><span class="value">4484 ms</span></div>
+      <div class="card"><span class="label">Avg response</span><span class="value">330.3 ms</span></div>
+    </div>
     <section class="section">
-      <h2>Danh sách testcase API</h2>
+      <h2>Chi tiết ca kiểm thử</h2>
       <table>
-        <thead><tr><th>ID</th><th>Method</th><th>Endpoint</th><th>Mong đợi</th><th>Kết quả</th><th>Assertions</th><th>Trạng thái</th><th>Thời gian</th></tr></thead>
-        <tbody><tr><td>API_001</td><td><span class='method'>GET</span></td><td>/api/categories</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>432 ms</td></tr>
-<tr><td>API_002</td><td><span class='method'>POST</span></td><td>/api/categories</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>179 ms</td></tr>
-<tr><td>API_003</td><td><span class='method'>GET</span></td><td>/api/check-tables</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>171 ms</td></tr>
-<tr><td>API_004</td><td><span class='method'>GET</span></td><td>/api/partners/returns</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>164 ms</td></tr>
-<tr><td>API_005</td><td><span class='method'>POST</span></td><td>/api/partners/returns</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>170 ms</td></tr></tbody>
+        <thead><tr><th>ID</th><th>Method</th><th>API</th><th>Mục đích</th><th>Mong đợi</th><th>Thực tế</th><th>Assert</th><th>Trạng thái</th><th>Thời gian</th></tr></thead>
+        <tbody>
+<tr><td>API_001</td><td><span class='method'>GET</span></td><td><code>/api/categories</code></td><td>Kiểm tra API danh mục bị chặn khi chưa đăng nhập</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>490 ms</td></tr>
+<tr><td>API_002</td><td><span class='method'>POST</span></td><td><code>/api/categories</code></td><td>Kiểm tra API tạo danh mục bị chặn trước khi xử lý dữ liệu</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>184 ms</td></tr>
+<tr><td>API_003</td><td><span class='method'>GET</span></td><td><code>/api/check-tables</code></td><td>Kiểm tra API nội bộ bị chặn khi chưa đăng nhập</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>172 ms</td></tr>
+<tr><td>API_004</td><td><span class='method'>GET</span></td><td><code>/api/partners/returns</code></td><td>Kiểm tra API danh sách đổi trả bị chặn khi chưa đăng nhập</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>176 ms</td></tr>
+<tr><td>API_005</td><td><span class='method'>POST</span></td><td><code>/api/partners/returns</code></td><td>Kiểm tra API tạo yêu cầu đổi trả bị chặn trước khi ghi dữ liệu</td><td>401 Unauthorized, code AUTH_REQUIRED</td><td>401 Unauthorized</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>171 ms</td></tr>
+<tr><td>API_006</td><td><span class='method'>POST</span></td><td><code>/auth/v1/token?grant_type=password</code></td><td>Kiểm tra đăng nhập thành công với tài khoản admin</td><td>200 OK, trả về access_token và đúng email admin</td><td>200 OK, đăng nhập thành công và trả về token</td><td>4</td><td><span class='badge pass'>PASSED</span></td><td>337 ms</td></tr>
+<tr><td>API_007</td><td><span class='method'>GET</span></td><td><code>/rest/v1/accounts</code></td><td>Kiểm tra vai trò và trạng thái tài khoản admin</td><td>200 OK, role = admin, status = active</td><td>200 OK, role = admin, status = active</td><td>4</td><td><span class='badge pass'>PASSED</span></td><td>176 ms</td></tr>
+<tr><td>API_008</td><td><span class='method'>GET</span></td><td><code>/api/check-tables</code></td><td>Kiểm tra admin gọi được API nội bộ sau đăng nhập</td><td>200 OK, success = true</td><td>200 OK, success = true</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>800 ms</td></tr>
+<tr><td>API_009</td><td><span class='method'>POST</span></td><td><code>/auth/v1/token?grant_type=password</code></td><td>Kiểm tra đăng nhập thành công với tài khoản nhân viên bán hàng</td><td>200 OK, trả về access_token và đúng email NVBH</td><td>200 OK, đăng nhập thành công và trả về token</td><td>4</td><td><span class='badge pass'>PASSED</span></td><td>200 ms</td></tr>
+<tr><td>API_010</td><td><span class='method'>GET</span></td><td><code>/rest/v1/accounts</code></td><td>Kiểm tra vai trò và trạng thái tài khoản nhân viên bán hàng</td><td>200 OK, role = NVBH, status = active</td><td>200 OK, role = NVBH, status = active</td><td>4</td><td><span class='badge pass'>PASSED</span></td><td>120 ms</td></tr>
+<tr><td>API_011</td><td><span class='method'>GET</span></td><td><code>/api/check-tables</code></td><td>Kiểm tra NVBH gọi được API nội bộ sau đăng nhập</td><td>200 OK, success = true</td><td>200 OK, success = true</td><td>3</td><td><span class='badge pass'>PASSED</span></td><td>807 ms</td></tr>
+        </tbody>
       </table>
     </section>
-    <section class="section"><h2>Lệnh chạy</h2><pre>npx --yes newman run collection/qlbh-api-security.postman_collection.json -e environment/qlbh-api.postman_environment.json -r "cli,json" --reporter-json-export reports/newman-result.json</pre></section>
-    <section class="section"><h2>Hiệu năng phản hồi</h2><div class="note">Thời gian phản hồi trung bình: <b>223.2 ms</b>. Nhanh nhất: <b>164 ms</b>. Chậm nhất: <b>432 ms</b>.</div></section>
-    <section class="section"><h2>Kết luận</h2><div class="note">Toàn bộ 5 request đều được thực thi thành công theo mong đợi, với 15/15 assertion pass. Các API nội bộ đều từ chối request chưa đăng nhập bằng mã trạng thái 401 và mã lỗi AUTH_REQUIRED. Vì vậy, có thể kết luận cơ chế bảo vệ API đối với truy cập chưa xác thực hoạt động đúng trong phạm vi bộ kiểm thử này.</div></section>
-  </main>
+    <section class="section">
+      <h2>Lệnh chạy Newman</h2>
+      <pre>npx --yes newman run collection/qlbh-api-security.postman_collection.json -e environment/qlbh-api.postman_environment.json -r "cli,json" --reporter-json-export reports/newman-result.json</pre>
+      <div class="note">Mật khẩu tài khoản kiểm thử được truyền bằng biến môi trường khi chạy thực tế và không lưu trong báo cáo HTML/JSON.</div>
+    </section>
+  </div>
 </body>
 </html>

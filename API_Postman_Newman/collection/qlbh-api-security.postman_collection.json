@@ -1,258 +1,620 @@
 {
-  "info": {
-    "_postman_id": "2f7c0fd3-3b8d-4f1b-9b4e-api-security-qlbh",
-    "name": "QLBH API Security - Unauthorized Access",
-    "description": "Bộ kiểm thử tự động API bằng Postman/Newman cho các API nội bộ của hệ thống quản lý bán hàng. Bộ kiểm thử tập trung kiểm tra việc API từ chối request khi chưa có session đăng nhập.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "API_001 - GET categories without session",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test('Status code is 401', function () {",
-              "  pm.response.to.have.status(401);",
-              "});",
-              "",
-              "pm.test('Response is JSON', function () {",
-              "  pm.response.to.be.json;",
-              "});",
-              "",
-              "pm.test('Response indicates unauthorized access', function () {",
-              "  const json = pm.response.json();",
-              "  pm.expect(json.error).to.eql('Unauthorized');",
-              "  pm.expect(json.code).to.eql('AUTH_REQUIRED');",
-              "  pm.expect(json.path).to.eql('/api/categories');",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/categories",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "categories"
-          ]
-        }
-      }
-    },
-    {
-      "name": "API_002 - POST categories without session",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test('Status code is 401', function () {",
-              "  pm.response.to.have.status(401);",
-              "});",
-              "",
-              "pm.test('Response is JSON', function () {",
-              "  pm.response.to.be.json;",
-              "});",
-              "",
-              "pm.test('Response indicates unauthorized access', function () {",
-              "  const json = pm.response.json();",
-              "  pm.expect(json.error).to.eql('Unauthorized');",
-              "  pm.expect(json.code).to.eql('AUTH_REQUIRED');",
-              "  pm.expect(json.path).to.eql('/api/categories');",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"name_category\": \"\",\n  \"description_category\": \"\"\n}"
-        },
-        "url": {
-          "raw": "{{base_url}}/api/categories",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "categories"
-          ]
-        }
-      }
-    },
-    {
-      "name": "API_003 - GET check-tables without session",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test('Status code is 401', function () {",
-              "  pm.response.to.have.status(401);",
-              "});",
-              "",
-              "pm.test('Response is JSON', function () {",
-              "  pm.response.to.be.json;",
-              "});",
-              "",
-              "pm.test('Response indicates unauthorized access', function () {",
-              "  const json = pm.response.json();",
-              "  pm.expect(json.error).to.eql('Unauthorized');",
-              "  pm.expect(json.code).to.eql('AUTH_REQUIRED');",
-              "  pm.expect(json.path).to.eql('/api/check-tables');",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/check-tables",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "check-tables"
-          ]
-        }
-      }
-    },
-    {
-      "name": "API_004 - GET returns without session",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test('Status code is 401', function () {",
-              "  pm.response.to.have.status(401);",
-              "});",
-              "",
-              "pm.test('Response is JSON', function () {",
-              "  pm.response.to.be.json;",
-              "});",
-              "",
-              "pm.test('Response indicates unauthorized access', function () {",
-              "  const json = pm.response.json();",
-              "  pm.expect(json.error).to.eql('Unauthorized');",
-              "  pm.expect(json.code).to.eql('AUTH_REQUIRED');",
-              "  pm.expect(json.path).to.eql('/api/partners/returns');",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/partners/returns",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "partners",
-            "returns"
-          ]
-        }
-      }
-    },
-    {
-      "name": "API_005 - POST returns without session",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test('Status code is 401', function () {",
-              "  pm.response.to.have.status(401);",
-              "});",
-              "",
-              "pm.test('Response is JSON', function () {",
-              "  pm.response.to.be.json;",
-              "});",
-              "",
-              "pm.test('Response indicates unauthorized access', function () {",
-              "  const json = pm.response.json();",
-              "  pm.expect(json.error).to.eql('Unauthorized');",
-              "  pm.expect(json.code).to.eql('AUTH_REQUIRED');",
-              "  pm.expect(json.path).to.eql('/api/partners/returns');",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"order_id\": \"\",\n  \"return_reason\": \"\",\n  \"status\": \"\"\n}"
-        },
-        "url": {
-          "raw": "{{base_url}}/api/partners/returns",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "partners",
-            "returns"
-          ]
-        }
-      }
-    }
-  ]
+    "info":  {
+                 "_postman_id":  "2f7c0fd3-3b8d-4f1b-9b4e-api-security-qlbh",
+                 "name":  "QLBH API - Unauthorized and Authenticated Access",
+                 "description":  "Bộ kiểm thử tự động API bằng Postman/Newman cho hệ thống quản lý bán hàng. Bộ kiểm thử gồm các ca chưa đăng nhập, đăng nhập bằng tài khoản admin, đăng nhập bằng tài khoản nhân viên bán hàng và gọi API sau xác thực.",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "item":  [
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/categories",
+                                                 "path":  [
+                                                              "api",
+                                                              "categories"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_001 - GET categories without session",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 401\u0027, function () {",
+                                                               "  pm.response.to.have.status(401);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response indicates unauthorized access\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.error).to.eql(\u0027Unauthorized\u0027);",
+                                                               "  pm.expect(json.code).to.eql(\u0027AUTH_REQUIRED\u0027);",
+                                                               "  pm.expect(json.path).to.eql(\u0027/api/categories\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "body":  {
+                                                  "raw":  "{\n  \"name_category\": \"\",\n  \"description_category\": \"\"\n}",
+                                                  "mode":  "raw"
+                                              },
+                                     "method":  "POST",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/categories",
+                                                 "path":  [
+                                                              "api",
+                                                              "categories"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Content-Type",
+                                                        "value":  "application/json"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_002 - POST categories without session",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 401\u0027, function () {",
+                                                               "  pm.response.to.have.status(401);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response indicates unauthorized access\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.error).to.eql(\u0027Unauthorized\u0027);",
+                                                               "  pm.expect(json.code).to.eql(\u0027AUTH_REQUIRED\u0027);",
+                                                               "  pm.expect(json.path).to.eql(\u0027/api/categories\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/check-tables",
+                                                 "path":  [
+                                                              "api",
+                                                              "check-tables"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_003 - GET check-tables without session",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 401\u0027, function () {",
+                                                               "  pm.response.to.have.status(401);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response indicates unauthorized access\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.error).to.eql(\u0027Unauthorized\u0027);",
+                                                               "  pm.expect(json.code).to.eql(\u0027AUTH_REQUIRED\u0027);",
+                                                               "  pm.expect(json.path).to.eql(\u0027/api/check-tables\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/partners/returns",
+                                                 "path":  [
+                                                              "api",
+                                                              "partners",
+                                                              "returns"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_004 - GET returns without session",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 401\u0027, function () {",
+                                                               "  pm.response.to.have.status(401);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response indicates unauthorized access\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.error).to.eql(\u0027Unauthorized\u0027);",
+                                                               "  pm.expect(json.code).to.eql(\u0027AUTH_REQUIRED\u0027);",
+                                                               "  pm.expect(json.path).to.eql(\u0027/api/partners/returns\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "body":  {
+                                                  "raw":  "{\n  \"order_id\": \"\",\n  \"return_reason\": \"\",\n  \"status\": \"\"\n}",
+                                                  "mode":  "raw"
+                                              },
+                                     "method":  "POST",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/partners/returns",
+                                                 "path":  [
+                                                              "api",
+                                                              "partners",
+                                                              "returns"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Content-Type",
+                                                        "value":  "application/json"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_005 - POST returns without session",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 401\u0027, function () {",
+                                                               "  pm.response.to.have.status(401);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response indicates unauthorized access\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.error).to.eql(\u0027Unauthorized\u0027);",
+                                                               "  pm.expect(json.code).to.eql(\u0027AUTH_REQUIRED\u0027);",
+                                                               "  pm.expect(json.path).to.eql(\u0027/api/partners/returns\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "url":  {
+                                                 "query":  [
+                                                               {
+                                                                   "key":  "grant_type",
+                                                                   "value":  "password"
+                                                               }
+                                                           ],
+                                                 "host":  [
+                                                              "{{supabase_url}}"
+                                                          ],
+                                                 "raw":  "{{supabase_url}}/auth/v1/token?grant_type=password",
+                                                 "path":  [
+                                                              "auth",
+                                                              "v1",
+                                                              "token"
+                                                          ]
+                                             },
+                                     "method":  "POST",
+                                     "body":  {
+                                                  "raw":  "{\n  \"email\": \"{{admin_email}}\",\n  \"password\": \"{{admin_password}}\"\n}",
+                                                  "mode":  "raw"
+                                              },
+                                     "header":  [
+                                                    {
+                                                        "key":  "apikey",
+                                                        "value":  "{{supabase_anon_key}}"
+                                                    },
+                                                    {
+                                                        "key":  "Authorization",
+                                                        "value":  "Bearer {{supabase_anon_key}}"
+                                                    },
+                                                    {
+                                                        "key":  "Content-Type",
+                                                        "value":  "application/json"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_006 - Login as admin",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 200\u0027, function () {",
+                                                               "  pm.response.to.have.status(200);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "const json = pm.response.json();",
+                                                               "pm.environment.set(\u0027admin_access_token\u0027, json.access_token || \u0027\u0027);",
+                                                               "",
+                                                               "pm.test(\u0027Access token is returned\u0027, function () {",
+                                                               "  pm.expect(json.access_token).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Logged in with expected email\u0027, function () {",
+                                                               "  pm.expect(json.user.email).to.eql(pm.environment.get(\u0027admin_email\u0027));",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "query":  [
+                                                               {
+                                                                   "key":  "select",
+                                                                   "value":  "user_name,role,status"
+                                                               },
+                                                               {
+                                                                   "key":  "user_name",
+                                                                   "value":  "eq.{{admin_email}}"
+                                                               }
+                                                           ],
+                                                 "host":  [
+                                                              "{{supabase_url}}"
+                                                          ],
+                                                 "raw":  "{{supabase_url}}/rest/v1/accounts?select=user_name,role,status\u0026user_name=eq.{{admin_email}}",
+                                                 "path":  [
+                                                              "rest",
+                                                              "v1",
+                                                              "accounts"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "apikey",
+                                                        "value":  "{{supabase_anon_key}}"
+                                                    },
+                                                    {
+                                                        "key":  "Authorization",
+                                                        "value":  "Bearer {{admin_access_token}}"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_007 - Check admin account role",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 200\u0027, function () {",
+                                                               "  pm.response.to.have.status(200);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "const rows = pm.response.json();",
+                                                               "const account = rows[0] || {};",
+                                                               "",
+                                                               "pm.test(\u0027Account data is returned\u0027, function () {",
+                                                               "  pm.expect(rows).to.be.an(\u0027array\u0027).that.is.not.empty;",
+                                                               "  pm.expect(account.user_name).to.eql(pm.environment.get(\u0027admin_email\u0027));",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Role and status are correct\u0027, function () {",
+                                                               "  pm.expect(account.role).to.eql(\u0027admin\u0027);",
+                                                               "  pm.expect(account.status).to.eql(\u0027active\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/check-tables",
+                                                 "path":  [
+                                                              "api",
+                                                              "check-tables"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Authorization",
+                                                        "value":  "Bearer {{admin_access_token}}"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_008 - Admin access protected API",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 200\u0027, function () {",
+                                                               "  pm.response.to.have.status(200);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Protected API returns success\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.success).to.eql(true);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "url":  {
+                                                 "query":  [
+                                                               {
+                                                                   "key":  "grant_type",
+                                                                   "value":  "password"
+                                                               }
+                                                           ],
+                                                 "host":  [
+                                                              "{{supabase_url}}"
+                                                          ],
+                                                 "raw":  "{{supabase_url}}/auth/v1/token?grant_type=password",
+                                                 "path":  [
+                                                              "auth",
+                                                              "v1",
+                                                              "token"
+                                                          ]
+                                             },
+                                     "method":  "POST",
+                                     "body":  {
+                                                  "raw":  "{\n  \"email\": \"{{staff_email}}\",\n  \"password\": \"{{staff_password}}\"\n}",
+                                                  "mode":  "raw"
+                                              },
+                                     "header":  [
+                                                    {
+                                                        "key":  "apikey",
+                                                        "value":  "{{supabase_anon_key}}"
+                                                    },
+                                                    {
+                                                        "key":  "Authorization",
+                                                        "value":  "Bearer {{supabase_anon_key}}"
+                                                    },
+                                                    {
+                                                        "key":  "Content-Type",
+                                                        "value":  "application/json"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_009 - Login as sales staff",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 200\u0027, function () {",
+                                                               "  pm.response.to.have.status(200);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "const json = pm.response.json();",
+                                                               "pm.environment.set(\u0027staff_access_token\u0027, json.access_token || \u0027\u0027);",
+                                                               "",
+                                                               "pm.test(\u0027Access token is returned\u0027, function () {",
+                                                               "  pm.expect(json.access_token).to.be.a(\u0027string\u0027).and.not.empty;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Logged in with expected email\u0027, function () {",
+                                                               "  pm.expect(json.user.email).to.eql(pm.environment.get(\u0027staff_email\u0027));",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "query":  [
+                                                               {
+                                                                   "key":  "select",
+                                                                   "value":  "user_name,role,status"
+                                                               },
+                                                               {
+                                                                   "key":  "user_name",
+                                                                   "value":  "eq.{{staff_email}}"
+                                                               }
+                                                           ],
+                                                 "host":  [
+                                                              "{{supabase_url}}"
+                                                          ],
+                                                 "raw":  "{{supabase_url}}/rest/v1/accounts?select=user_name,role,status\u0026user_name=eq.{{staff_email}}",
+                                                 "path":  [
+                                                              "rest",
+                                                              "v1",
+                                                              "accounts"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "apikey",
+                                                        "value":  "{{supabase_anon_key}}"
+                                                    },
+                                                    {
+                                                        "key":  "Authorization",
+                                                        "value":  "Bearer {{staff_access_token}}"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_010 - Check sales staff account role",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 200\u0027, function () {",
+                                                               "  pm.response.to.have.status(200);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "const rows = pm.response.json();",
+                                                               "const account = rows[0] || {};",
+                                                               "",
+                                                               "pm.test(\u0027Account data is returned\u0027, function () {",
+                                                               "  pm.expect(rows).to.be.an(\u0027array\u0027).that.is.not.empty;",
+                                                               "  pm.expect(account.user_name).to.eql(pm.environment.get(\u0027staff_email\u0027));",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Role and status are correct\u0027, function () {",
+                                                               "  pm.expect(account.role).to.eql(\u0027NVBH\u0027);",
+                                                               "  pm.expect(account.status).to.eql(\u0027active\u0027);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 },
+                 {
+                     "request":  {
+                                     "method":  "GET",
+                                     "url":  {
+                                                 "host":  [
+                                                              "{{base_url}}"
+                                                          ],
+                                                 "raw":  "{{base_url}}/api/check-tables",
+                                                 "path":  [
+                                                              "api",
+                                                              "check-tables"
+                                                          ]
+                                             },
+                                     "header":  [
+                                                    {
+                                                        "key":  "Authorization",
+                                                        "value":  "Bearer {{staff_access_token}}"
+                                                    },
+                                                    {
+                                                        "key":  "Accept",
+                                                        "value":  "application/json"
+                                                    }
+                                                ]
+                                 },
+                     "name":  "API_011 - Sales staff access protected API",
+                     "event":  {
+                                   "script":  {
+                                                  "exec":  [
+                                                               "pm.test(\u0027Status code is 200\u0027, function () {",
+                                                               "  pm.response.to.have.status(200);",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Response is JSON\u0027, function () {",
+                                                               "  pm.response.to.be.json;",
+                                                               "});",
+                                                               "",
+                                                               "pm.test(\u0027Protected API returns success\u0027, function () {",
+                                                               "  const json = pm.response.json();",
+                                                               "  pm.expect(json.success).to.eql(true);",
+                                                               "});"
+                                                           ],
+                                                  "type":  "text/javascript"
+                                              },
+                                   "listen":  "test"
+                               }
+                 }
+             ]
 }
