@@ -23,3 +23,5 @@ Kho lưu trữ này dùng để chia sẻ các file phục vụ kiểm thử t�
 - [Kết quả HTML Hàm 2 - Lần 1 C1](./K%E1%BA%BFt%20qu%E1%BA%A3%20ki%E1%BB%83m%20th%E1%BB%AD/H%C3%A0m%202/L%E1%BA%A7n%201%20-%20C1/bao-cao-ket-qua.html)
 - [Kết quả HTML Hàm 2 - Lần 2 C2](./K%E1%BA%BFt%20qu%E1%BA%A3%20ki%E1%BB%83m%20th%E1%BB%AD/H%C3%A0m%202/L%E1%BA%A7n%202%20-%20C2/bao-cao-ket-qua.html)
 - [Kết quả HTML Hàm 2 - Lần 3 C3](./K%E1%BA%BFt%20qu%E1%BA%A3%20ki%E1%BB%83m%20th%E1%BB%AD/H%C3%A0m%202/L%E1%BA%A7n%203%20-%20C3/bao-cao-ket-qua.html)
+- [Báo cáo kiểm thử Hàm 3](./K%E1%BA%BFt%20qu%E1%BA%A3%20ki%E1%BB%83m%20th%E1%BB%AD/H%C3%A0m%203/bao-cao-kiem-thu-ham-3.md)
+- [Kết quả HTML Hàm 3](./K%E1%BA%BFt%20qu%E1%BA%A3%20ki%E1%BB%83m%20th%E1%BB%AD/H%C3%A0m%203/L%E1%BA%A7n%201%20-%20C1-C2-C3/bao-cao-ket-qua.html)

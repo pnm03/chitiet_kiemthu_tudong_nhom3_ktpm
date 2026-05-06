@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hàm 3 - Kết quả kiểm thử</title>
+  <style>
+    :root { --bg:#f5f8fb; --panel:#fff; --ink:#122033; --muted:#627086; --line:#dce8f0; --green:#15803d; --green-bg:#e9fbf0; --blue:#1d4ed8; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:28px; background:var(--bg); color:var(--ink); font-family:"Segoe UI", Tahoma, sans-serif; }
+    .page { max-width:1180px; margin:0 auto; }
+    .hero { background:linear-gradient(135deg,#334155,#0f766e); color:white; border-radius:18px; padding:28px 32px; box-shadow:0 18px 45px rgba(15,118,110,.16); }
+    .hero h1 { margin:0 0 8px; font-size:28px; letter-spacing:-.02em; }
+    .hero p { margin:0; opacity:.92; font-size:15px; }
+    .section { margin-top:22px; background:var(--panel); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(18,32,51,.06); }
+    .section h2 { margin:0; padding:18px 22px; font-size:18px; border-bottom:1px solid var(--line); background:#fbfdff; }
+    .metric { display:grid; grid-template-columns:1.25fr 1fr 1fr 1fr 1fr; }
+    .metric > div { padding:14px 16px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:#eefae8; }
+    .metric > div:last-child { border-right:0; }
+    .metric .label { display:block; color:var(--muted); font-size:12px; margin-bottom:6px; }
+    .metric .value { font-size:18px; font-weight:800; }
+    .metric .ratio { color:var(--muted); font-size:13px; margin-left:6px; }
+    .bar { height:18px; background:#d9ead1; border-radius:3px; overflow:hidden; margin-top:8px; }
+    .bar span { display:block; height:100%; background:#348b25; width:100%; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:14px 16px; border-bottom:1px solid var(--line); font-size:14px; vertical-align:middle; }
+    th { color:#24364d; font-weight:700; background:#f7fbf9; }
+    tbody tr { background:#f2fff7; }
+    tbody tr:hover { background:#eafaf0; }
+    .badge { display:inline-block; padding:7px 13px; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.02em; }
+    .badge.pass { color:var(--green); background:#d9fbe5; }
+    pre { margin:0; padding:18px 22px; overflow:auto; background:#0f172a; color:#e2e8f0; font-size:13px; line-height:1.55; }
+    .links { display:flex; gap:12px; flex-wrap:wrap; padding:18px 22px; }
+    .links a { color:var(--blue); text-decoration:none; font-weight:700; background:#eff6ff; border:1px solid #bfdbfe; padding:10px 14px; border-radius:10px; }
+    .note { padding:18px 22px; line-height:1.7; color:#26384f; background:#fbfefd; }
+    .strong { font-weight:800; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero"><h1>Hàm 3 - Kết quả kiểm thử</h1><p>Bộ 4 ca kiểm thử bao phủ đầy đủ các nhánh của deleteInvoice().</p></section>
+    <section class="section">
+      <h2>Tổng quan coverage</h2>
+      <div class="metric">
+        <div><span class="label">File</span><span class="value">delete-invoice.ts</span><div class="bar"><span></span></div></div>
+        <div><span class="label">Statements</span><span class="value">100%</span><span class="ratio">13/13</span></div>
+        <div><span class="label">Branches</span><span class="value">100%</span><span class="ratio">6/6</span></div>
+        <div><span class="label">Functions</span><span class="value">100%</span><span class="ratio">1/1</span></div>
+        <div><span class="label">Lines</span><span class="value">100%</span><span class="ratio">13/13</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Danh sách testcase</h2>
+      <table><thead><tr><th style="width:90px">Testcase</th><th>Dữ liệu kiểm thử</th><th style="width:260px">Mong đợi</th><th style="width:260px">Kết quả trả về</th><th style="width:140px">Trạng thái</th><th style="width:120px">Thời gian</th></tr></thead><tbody><tr><td>B1</td><td>Chỉ còn 1 hóa đơn, index = 0, activeInvoiceIndex = 0</td><td>Hiển thị alert và không xóa hóa đơn</td><td>Alert được gọi, không gọi setInvoices</td><td><span class='badge pass'>PASSED</span></td><td>7 ms</td></tr>
+<tr><td>B2</td><td>Có 3 hóa đơn, xóa hóa đơn đang active</td><td>Xóa hóa đơn và đặt activeInvoiceIndex = 0</td><td>setInvoices đúng, setActiveInvoiceIndex = 0</td><td><span class='badge pass'>PASSED</span></td><td>3 ms</td></tr>
+<tr><td>B3</td><td>Có 3 hóa đơn, xóa hóa đơn trước hóa đơn đang active</td><td>Xóa hóa đơn và giảm activeInvoiceIndex đi 1</td><td>setInvoices đúng, setActiveInvoiceIndex = 1</td><td><span class='badge pass'>PASSED</span></td><td>2 ms</td></tr>
+<tr><td>B4</td><td>Có 3 hóa đơn, xóa hóa đơn sau hóa đơn đang active</td><td>Xóa hóa đơn và giữ nguyên activeInvoiceIndex</td><td>setInvoices đúng, không gọi setActiveInvoiceIndex</td><td><span class='badge pass'>PASSED</span></td><td>2 ms</td></tr></tbody></table>
+    </section>
+    <section class="section"><h2>Lệnh chạy</h2><pre>npx jest TEST_1/Ham_3/delete-invoice.test.ts --coverage --collectCoverageFrom=TEST_1/Ham_3/delete-invoice.ts --coverageDirectory=TEST_1/Ham_3/ket-qua/coverage --json --outputFile=TEST_1/Ham_3/ket-qua/jest-result.json</pre></section>
+    <section class="section"><h2>File coverage chi tiết</h2><div class="links"><a href="coverage-html/index.html">Mở bảng coverage Istanbul</a><a href="coverage-html/delete-invoice.ts.html">Mở coverage theo dòng code</a><a href="jest-result.json">Mở JSON kết quả Jest</a><a href="coverage-final.json">Mở JSON coverage</a></div></section>
+    <section class="section"><h2>Kết luận</h2><div class="note">4/4 testcase đều PASSED. Statements, Branches, Functions và Lines đều đạt 100%. Hàm <span class="strong">deleteInvoice()</span> không có nhánh ẩn hoặc điều kiện ghép cần tách thêm, nên bộ 4 ca kiểm thử đã đủ để kết luận Hàm 3 đạt C1, C2 và C3.</div></section>
+  </main>
+</body>
+</html>
